@@ -24,8 +24,24 @@
             <section id="history-section" class="card">
                 <h2><i class="fas fa-history"></i> Your Quiz History</h2>
                 
+                <div class="history-controls">
+                    <div class="history-search">
+                        <input type="text" id="search-input" placeholder="Search by name..." class="form-control">
+                    </div>
+                    <div class="history-filter">
+                        <select id="category-filter" class="form-control">
+                            <option value="all">All Categories</option>
+                            <!-- Categories will be added dynamically -->
+                        </select>
+                    </div>
+                </div>
+                
                 <div id="history-container">
                     <!-- Quiz history will be displayed here -->
+                </div>
+                
+                <div id="pagination-controls" class="pagination-controls">
+                    <!-- Pagination controls will be added here -->
                 </div>
                 
                 <div id="no-history" class="hidden">
