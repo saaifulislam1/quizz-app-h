@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Master</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <i class="fas fa-brain"></i>
+          <h1>Quiz Master</h1>
+        </div>
+        <nav>
+          <a href="index.html" class="active"
+            ><i class="fas fa-home"></i> Take Quiz</a
+          >
+          <a href="history.html"><i class="fas fa-history"></i> Quiz History</a>
+        </nav>
+      </header>
+
+      <main>
+        <section id="json-input-section" class="card">
+          <div class="section-header">
+            <h2><i class="fas fa-file-import"></i> Input Quiz Data</h2>
+            <p class="section-description">
+              Upload a JSON file or paste your quiz data below to get started.
+            </p>
+          </div>
+
+          <div class="input-methods">
+            <div class="file-upload">
+              <label for="json-file" class="file-input-button">
+                <i class="fas fa-file-upload"></i> Upload JSON File
+              </label>
+              <input
+                type="file"
+                id="json-file"
+                accept=".json"
+                class="hidden-file-input"
+              />
+              <span id="file-name">No file chosen</span>
+            </div>
+            <div class="text-input">
+              <label for="json-text">
+                <i class="fas fa-keyboard"></i> Or Paste JSON Data:
+              </label>
+              <textarea
+                id="json-text"
+                rows="8"
+                placeholder="Paste your JSON quiz data here..."
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="sample-data">
+            <details>
+              <summary>
+                <i class="fas fa-lightbulb"></i> Sample JSON Format
+              </summary>
+              <pre>
+[
+  {
+    "id": 1,
+    "category": "Next.js",
+    "question": "What is the primary purpose of Next.js's getStaticProps function?",
+    "options": [
+      "To fetch data at runtime for each request",
+      "To fetch data at build time for static generation",
+      "To authenticate users before page load",
+      "To redirect users to different pages"
+    ],
+    "correctAnswer": 1,
+    "explanation": "getStaticProps allows you to fetch data at build time, making it available as props to the page component. This enables static generation (SSG) where pages are pre-rendered during build, improving performance and SEO."
+  }
+]</pre
+              >
+            </details>
+          </div>
+
+          <button id="load-quiz-btn" class="primary-btn pulse-animation">
+            <i class="fas fa-play"></i> Load Quiz
+          </button>
+          <div id="json-error" class="error-message"></div>
+        </section>
+
+        <section id="quiz-section" class="card hidden">
+          <div class="quiz-header">
+            <h2 id="quiz-category"></h2>
+            <div class="quiz-meta">
+              <span id="question-count"></span>
+            </div>
+          </div>
+
+          <div class="quiz-progress">
+            <div class="progress-bar">
+              <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <div class="progress-text">
+              <span id="answered-count">0</span> of
+              <span id="total-count">0</span> questions answered
+            </div>
+          </div>
+
+          <div id="questions-container"></div>
+
+          <button id="submit-quiz-btn" class="primary-btn">
+            <i class="fas fa-check-circle"></i> Submit Quiz
+          </button>
+        </section>
+
+        <section id="results-section" class="card hidden">
+          <h2><i class="fas fa-trophy"></i> Quiz Results</h2>
+          <div id="score-summary">
+            <div class="score-circle">
+              <span id="score-percentage">0</span><span>%</span>
+            </div>
+            <p>
+              Correct answers: <span id="correct-count">0</span>/<span
+                id="total-questions"
+                >0</span
+              >
+            </p>
+          </div>
+
+          <div class="save-attempt-form">
+            <h3><i class="fas fa-save"></i> Save Your Attempt</h3>
+            <div class="form-group">
+              <label for="attempt-name">Name this attempt:</label>
+              <input
+                type="text"
+                id="attempt-name"
+                placeholder="e.g., JavaScript Basics Quiz #1"
+                class="form-control"
+              />
+            </div>
+            <button id="save-attempt-btn" class="primary-btn">
+              <i class="fas fa-save"></i> Save Attempt
+            </button>
+            <div id="save-feedback" class="feedback-message hidden"></div>
+          </div>
+
+          <div class="results-actions">
+            <button id="take-another-btn" class="secondary-btn">
+              <i class="fas fa-redo"></i> Take Another Quiz
+            </button>
+            <a href="history.html" class="primary-btn">
+              <i class="fas fa-history"></i> View History
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>&copy; 2024 Quiz Master. All rights reserved.</p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

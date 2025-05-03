@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz History - Quiz Master</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <h1>Quiz Master</h1>
+            </div>
+            <nav>
+                <a href="index.html"><i class="fas fa-home"></i> Take Quiz</a>
+                <a href="history.html" class="active"><i class="fas fa-history"></i> Quiz History</a>
+            </nav>
+        </header>
+
+        <main>
+            <section id="history-section" class="card">
+                <h2><i class="fas fa-history"></i> Your Quiz History</h2>
+                
+                <div id="history-container">
+                    <!-- Quiz history will be displayed here -->
+                </div>
+                
+                <div id="no-history" class="hidden">
+                    <div class="empty-state">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <p>No quiz history found. Take a quiz to see your history!</p>
+                        <a href="index.html" class="primary-btn">Take a Quiz Now</a>
+                    </div>
+                </div>
+                
+                <div id="quiz-details" class="hidden">
+                    <div class="quiz-details-header">
+                        <button id="back-to-history" class="secondary-btn">
+                            <i class="fas fa-arrow-left"></i> Back to History
+                        </button>
+                        <h3 id="quiz-details-title"></h3>
+                        <div id="quiz-details-meta"></div>
+                    </div>
+                    <div id="quiz-details-content"></div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Quiz Master. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="history.js"></script>
+</body>
+</html>
